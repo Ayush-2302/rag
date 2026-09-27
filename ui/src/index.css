@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Design Tokens — Single Source of Truth for the Entire Application. */
+/* Light, premium, soft, minimal palette with accessible contrast.    */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Typography */
+ --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  /* Brand / Primary — refined soft indigo */
+  --color-primary: #3b5bf5;
+  --color-primary-hover: #2f4dd8;
+  --color-primary-active: #2640bc;
+  --color-primary-soft: #eff3ff;
+
+  --color-secondary: #64748b;
+  --color-secondary-soft: #f1f5f9;
+
+  /* Surfaces & Background */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f8fafc;
+  --color-surface-hover: #f1f5f9;
+  --color-surface-active: #e2e8f0;
+
+  /* Text Tokens */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-disabled: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  /* Border Tokens */
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  --color-border-hover: #cbd5e1;
+  --color-border-focus: #3b5bf5;
+
+  /* Status Tokens */
+  --color-success: #10b981;
+  --color-success-hover: #059669;
+  --color-success-soft: #ecfdf5;
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --color-warning-soft: #fffbeb;
+
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-danger-soft: #fef2f2;
+
+  --color-info: #3b82f6;
+  --color-info-hover: #2563eb;
+  --color-info-soft: #eff6ff;
+
+  /* Other Semantic Tokens */
+  --color-focus-ring: rgba(59, 91, 245, 0.25);
+  --color-overlay: rgba(15, 23, 42, 0.45);
+  --color-selection: #dbe5f1;
+  --color-link: #3b5bf5;
+  --color-link-hover: #2f4dd8;
+
+  /* Compatibility scales */
+  --color-primary-50: #f8fafc;
+  --color-primary-100: #f1f5f9;
+  --color-primary-200: #e2e8f0;
+  --color-primary-300: #cbd5e1;
+  --color-primary-400: #94a3b8;
+  --color-primary-500: #64748b;
+  --color-primary-600: #475569;
+  --color-primary-700: #334155;
+  --color-primary-800: #1e293b;
+  --color-primary-900: #0f172a;
+
+  --color-sunken: #f8fafc;
+
+  /* Radii scale */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Subtle Shadows */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 2px 4px -1px rgba(15, 23, 42, 0.06), 0 4px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 4px 6px -2px rgba(15, 23, 42, 0.05), 0 10px 15px -3px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  /* Animation */
+  --animate-fade-in: fade-in 0.15s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CSS Variables Source of Truth */
+:root {
+  color-scheme: light;
+
+  /* Brand */
+  --primary: #3b5bf5;
+  --primary-hover: #2f4dd8;
+  --primary-active: #2640bc;
+  --primary-soft: #eff3ff;
+
+  --secondary: #64748b;
+  --secondary-soft: #f1f5f9;
+
+  /* Backgrounds & Surfaces */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --surface-active: #e2e8f0;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-disabled: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Border */
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-hover: #cbd5e1;
+  --border-focus: #3b5bf5;
+
+  /* Status */
+  --success: #10b981;
+  --success-hover: #059669;
+  --success-soft: #ecfdf5;
+
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-soft: #fffbeb;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-soft: #fef2f2;
+
+  --info: #3b82f6;
+  --info-hover: #2563eb;
+  --info-soft: #eff6ff;
+
+  /* Utility */
+  --focus-ring: rgba(59, 91, 245, 0.25);
+  --overlay: rgba(15, 23, 42, 0.45);
+  --selection: #dbe5f1;
+  --link: #3b5bf5;
+  --link-hover: #2f4dd8;
+}
+
+/* Base Styles */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* 14px base typography */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--text-primary);
+}
+
+/* Slim scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-hover);
+}
+
+/* App-wide keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}

@@ -1,0 +1,24 @@
+# Python/FastAPI ignore
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+.venv/
+build/
+dist/
+
+# Document processing ignore
+data/
+temp_*
+
+# OS ignore
+.DS_Store
+Thumbs.db
+
+# IDE ignore
+.vscode/
+.idea/
+.user/
+*.log
